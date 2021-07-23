@@ -5,16 +5,21 @@ import {
   Typography,
   Button,
   Popover,
+  FormControlLabel,
+  Switch,
 } from "@material-ui/core";
 import TranslateIcon from "@material-ui/icons/Translate";
+import Brightness3Icon from "@material-ui/icons/Brightness3";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import useDarkMode from "use-dark-mode";
 
 import { checkToken } from "../../utils/checkToken";
 import { useStyles } from "./styles";
 
 export const MainLayout = ({ children }) => {
   const { t, i18n } = useTranslation();
+  const darkMode = useDarkMode(false);
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
   const [language, setLanguage] = useState("En");
@@ -93,6 +98,10 @@ export const MainLayout = ({ children }) => {
                 {t("Menu.1")}
               </Link>
             </Typography>
+            <FormControlLabel
+              control={<Switch name="antoine" onChange={darkMode.toggle} />}
+              label={<Brightness3Icon />}
+            />
             <Button color="inherit" className={classes.btnAction}>
               {checkToken() ? t("Menu.3") : t("Menu.4")}
             </Button>
