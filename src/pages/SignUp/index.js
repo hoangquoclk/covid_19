@@ -34,8 +34,8 @@ export const SignUp = () => {
         };
         let accounts = JSON.parse(localStorage.getItem("accounts"));
         if (!accounts) {
-          accounts = new Array();
-          accounts.push(newAccount);
+          accounts = new Array([]);
+          accounts[0] = newAccount;
         } else {
           accounts.push(newAccount);
         }
