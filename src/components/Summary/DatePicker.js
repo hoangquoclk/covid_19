@@ -23,11 +23,7 @@ export const DatePicker = ({
 
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <Grid
-        container
-        justifyContent="space-around"
-        // className={classes.date__filter}
-      >
+      <Grid container justifyContent="space-around">
         <KeyboardDatePicker
           disableToolbar
           variant="inline"

@@ -48,6 +48,10 @@ export const Search = (props) => {
     }
   };
 
+  const handleSearchClick = () => {
+    setSearchText("");
+  };
+
   return (
     <Container className={classes.root}>
       <Container className={classes.logo}>
@@ -88,6 +92,7 @@ export const Search = (props) => {
                       <Link
                         to={`/detail/${item.countryInfo._id}`}
                         className={classes.link}
+                        onClick={handleSearchClick}
                       >
                         <ListItem button>
                           <ListItemAvatar>
