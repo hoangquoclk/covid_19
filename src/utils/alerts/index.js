@@ -36,7 +36,7 @@ export const errorAlert = (title) => {
     icon: "error",
     title: title,
     showConfirmButton: false,
-    timer: 1000,
+    timer: 1500,
   });
 };
 

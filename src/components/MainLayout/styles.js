@@ -1,14 +1,10 @@
 import { makeStyles } from "@material-ui/styles";
 
 export const useStyles = makeStyles((theme) => ({
-  // body: {
-
-  // },
   root: {
     flexGrow: 1,
   },
   btnLanguage: {
-    marginRight: 10,
     color: "#fff",
   },
   typography: {
