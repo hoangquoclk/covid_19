@@ -18,19 +18,16 @@ export const useStyles = makeStyles((theme) => ({
     marginBottom: 20,
     fontWeight: 600,
     color: "#3f51b5",
-    "&:hover": {
-      color: "#91a0f1",
-    },
   },
-  description: {},
+  description: {
+    padding: 10,
+  },
   published: {
     marginTop: 15,
     fontStyle: "italic",
   },
   author: {
     fontWeight: 600,
-  },
-  link: {
-    textDecoration: "none",
+    paddingBottom: 20,
   },
 }));

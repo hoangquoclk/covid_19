@@ -13,7 +13,6 @@ export const useStyles = makeStyles((theme) => ({
     height: "500px",
     width: "350px",
     backgroundColor: "#e9f9ff",
-    // backgroundImage: `url(${"https://png.pngtree.com/thumb_back/fh260/background/20190223/ourmid/pngtree-whole-genetic-particle-medical-background-image_68824.jpg"})`,
     objectFit: "cover",
   },
   avatar: {

@@ -17,6 +17,9 @@ export const useStyles = makeStyles((theme) => ({
   link: {
     textDecoration: "none",
     color: "#3f51b5",
+    "&:hover": {
+      color: "#91a0f1",
+    },
   },
   right__articles__item__image: {
     width: "100%",

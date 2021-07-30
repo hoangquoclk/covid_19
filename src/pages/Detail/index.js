@@ -6,6 +6,7 @@ import axios from "axios";
 import { Search, Highlight, Summary, Loading } from "../../components";
 import { WorldActions } from "../../redux/rootAction";
 import { Container } from "@material-ui/core";
+import { errorAlert } from "../../utils/alerts";
 
 export const Detail = () => {
   const countries = useSelector((state) => state.countries.listCountries);
@@ -33,31 +34,37 @@ export const Detail = () => {
   };
 
   const getWorldStatus = async () => {
+    setIsLoading(true);
     await axios
       .get(`https://disease.sh/v3/covid-19/historical/${detailId}?lastdays=all`)
       .then((response) => {
         dispatch(WorldActions.setWorldStatus(response.data.timeline));
+        setIsLoading(false);
       })
-      .catch((error) => alert(error));
+      .catch((error) => {
+        errorAlert(error);
+        setIsLoading(false);
+      });
   };
 
   const getCountry = async () => {
+    setIsLoading(true);
     await axios
       .get(`https://disease.sh/v3/covid-19/countries/${detailId}`)
       .then((response) => {
         setCountry(response.data);
+        setIsLoading(false);
       })
-      .catch((error) => alert(error));
+      .catch((error) => {
+        errorAlert(error);
+        setIsLoading(false);
+      });
   };
 
   useEffect(() => {
-    setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-      getWorldStatus();
-      getCountry();
-      setListSearchCountries([]);
-    }, 2000);
+    getWorldStatus();
+    getCountry();
+    setListSearchCountries([]);
   }, [detailId]);
 
   return (
@@ -74,7 +81,7 @@ export const Detail = () => {
       />
       <Summary />
 
-      {isLoading && <Loading />}
+      <Loading isOpen={isLoading} />
     </div>
   );
 };

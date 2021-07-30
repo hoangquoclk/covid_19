@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useStyles } from "./styles";
 
-export const ListArticles = ({ listSubArticles }) => {
+export const ListArticles = ({ listSubArticles, onClickArticleDetail }) => {
   const classes = useStyles();
 
   return (
@@ -12,7 +12,7 @@ export const ListArticles = ({ listSubArticles }) => {
         <Grid item xs={12} sm={6} className={classes.left__article}>
           {listSubArticles &&
             listSubArticles.map((item, index) => {
-              if (index <= 11) {
+              if (index <= 12) {
                 return (
                   <Container
                     className={classes.left__article__item}
@@ -26,13 +26,17 @@ export const ListArticles = ({ listSubArticles }) => {
                       <Link
                         to={`/news/${item.source.id}/detail`}
                         className={classes.link}
+                        onClick={() => onClickArticleDetail(item)}
                       >
                         {item.title}
                       </Link>
                     </Typography>
                     <Grid container spacing={2}>
                       <Grid item xs={6}>
-                        <Link to={`/news/${item.source.id}/detail`}>
+                        <Link
+                          to={`/news/${item.source.id}/detail`}
+                          onClick={() => onClickArticleDetail(item)}
+                        >
                           <img
                             className={classes.left__articles__item__image}
                             src={item.urlToImage}
@@ -59,13 +63,16 @@ export const ListArticles = ({ listSubArticles }) => {
         <Grid item xs={12} sm={6} className={classes.right__articles}>
           {listSubArticles &&
             listSubArticles.map((item, index) => {
-              if (index > 11) {
+              if (index > 12) {
                 return (
                   <Container
                     className={classes.right__articles__item}
                     key={index}
                   >
-                    <Link to={`/news/${item.source.id}/detail`}>
+                    <Link
+                      to={`/news/${item.source.id}/detail`}
+                      onClick={() => onClickArticleDetail(item)}
+                    >
                       <img
                         className={classes.right__articles__item__image}
                         src={item.urlToImage}
@@ -80,6 +87,7 @@ export const ListArticles = ({ listSubArticles }) => {
                       <Link
                         to={`/news/${item.source.id}/detail`}
                         className={classes.link}
+                        onClick={() => onClickArticleDetail(item)}
                       >
                         {item.title}
                       </Link>

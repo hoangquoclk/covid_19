@@ -11,6 +11,7 @@ import MapChart from "./MapChart";
 import { MainArticle } from "./MainArticle";
 import { ListArticles } from "./ListArticles";
 import { SearchArticles } from "./SearchArticles";
+import { Article } from "./Article";
 
 export {
   MainLayout,
@@ -26,4 +27,5 @@ export {
   MainArticle,
   ListArticles,
   SearchArticles,
+  Article,
 };

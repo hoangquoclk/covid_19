@@ -72,20 +72,12 @@ const LineChart = ({ data }) => {
           data: data.data,
         },
       ],
-      // responsive: {
-      //   rules: [
-      //     {
-      //       condition: {
-      //         maxWidth: 500,
-      //       },
-      //     },
-      //   ],
-      // },
     };
   };
 
   useEffect(() => {
     setOptions(generateOptions(data));
+    // console.log("da doi language");
   }, [data, language]);
 
   return (

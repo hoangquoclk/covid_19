@@ -22,7 +22,7 @@ import { Link } from "react-router-dom";
 export const SearchArticles = (props) => {
   const classes = useStyles();
   const { t } = useTranslation();
-  const { onSubmit, listSearch } = props;
+  const { onSubmit, listSearch, onClickArticleDetail } = props;
   const [searchText, setSearchText] = useState("");
   const typingTimeoutRef = useRef(null);
 
@@ -48,8 +48,9 @@ export const SearchArticles = (props) => {
     }
   };
 
-  const handleSearchClick = () => {
+  const handleSearchClick = (article) => {
     setSearchText("");
+    onClickArticleDetail(article);
   };
 
   return (
@@ -65,7 +66,7 @@ export const SearchArticles = (props) => {
         <Paper component="form" elevation={4} className={classes.search}>
           <InputBase
             className={classes.input}
-            placeholder={t("SearchPlaceholder")}
+            placeholder={t("SearchNewsPlaceholder")}
             inputProps={{ "aria-label": "search google maps" }}
             value={searchText}
             onChange={handleSearchTextChange}
@@ -92,7 +93,7 @@ export const SearchArticles = (props) => {
                       <Link
                         to={`/news/${item.source.id}/detail`}
                         className={classes.link}
-                        onClick={handleSearchClick}
+                        onClick={() => handleSearchClick(item)}
                       >
                         <ListItem button>
                           <ListItemAvatar>
