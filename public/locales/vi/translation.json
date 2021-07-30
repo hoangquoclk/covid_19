@@ -5,7 +5,12 @@
     "3": "Đăng xuất",
     "4": "Đăng nhập"
   },
+  "Language": {
+    "English": "Tiếng Anh",
+    "Vietnamese": "Tiếng Việt"
+  },
   "SearchPlaceholder": "Tìm quốc gia",
+  "SearchNewsPlaceholder": "Tìm bài báo",
   "SelectType": {
     "Display": "Hiển thị",
     "Dashboard": "Bảng điều khiển",

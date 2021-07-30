@@ -53,8 +53,10 @@ export const MainLayout = ({ children }) => {
   const handleAuthenticationClick = () => {
     if (localStorage.getItem("auth")) {
       localStorage.removeItem("auth");
+      history.push("/news");
+    } else {
+      history.push("/login");
     }
-    history.push("/login");
   };
 
   const open = Boolean(anchorEl);
@@ -88,13 +90,13 @@ export const MainLayout = ({ children }) => {
                   className={classes.typography}
                   onClick={() => handleLanguageChange("en")}
                 >
-                  English
+                  {t("Language.English")}
                 </Typography>
                 <Typography
                   className={classes.typography}
                   onClick={() => handleLanguageChange("vi")}
                 >
-                  Vietnamese
+                  {t("Language.Vietnamese")}
                 </Typography>
               </Popover>
               <Typography variant="h6" className={classes.newsTitle}>

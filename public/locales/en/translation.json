@@ -5,7 +5,12 @@
     "3": "Logout",
     "4": "Login"
   },
+  "Language": {
+    "English": "English",
+    "Vietnamese": "Vietnamese"
+  },
   "SearchPlaceholder": "Search Country",
+  "SearchNewsPlaceholder": "Search Article",
   "SelectType": {
     "Display": "Display",
     "Dashboard": "Dashboard",

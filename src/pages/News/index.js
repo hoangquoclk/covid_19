@@ -1,25 +1,38 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { ArticlesActions } from "../../redux/rootAction";
 import {
   MainLayout,
   MainArticle,
   ListArticles,
   SearchArticles,
+  Loading,
 } from "../../components";
+import { errorAlert } from "../../utils/alerts";
 
 const apiKey = "3edd668791c74087954c358034bdd5e1";
 const url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${apiKey}`;
 
 export const News = () => {
-  const [listArticles, setListArticles] = useState([]);
+  const listArticles = useSelector((state) => state.articles.listArticles);
   const [listSubArticles, setListSubArticles] = useState([]);
   const [listSearchArticles, setListSearchArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useDispatch();
 
   const getListArticles = async () => {
+    setIsLoading(true);
     await axios
       .get(url)
-      .then((res) => setListArticles(res.data.articles))
-      .catch((err) => console.log(err));
+      .then((res) => {
+        dispatch(ArticlesActions.setArticles(res.data.articles));
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        errorAlert(err);
+      });
   };
 
   const handleSearchChange = (newFilter) => {
@@ -38,6 +51,10 @@ export const News = () => {
     }
   };
 
+  const handleArticleDetailClick = (article) => {
+    dispatch(ArticlesActions.setArticleDetail(article));
+  };
+
   useEffect(() => {
     getListArticles();
   }, []);
@@ -51,10 +68,22 @@ export const News = () => {
       <SearchArticles
         onSubmit={handleSearchChange}
         listSearch={listSearchArticles}
+        onClickArticleDetail={handleArticleDetailClick}
       />
-      {listArticles.length > 0 && <MainArticle article={listArticles[0]} />}
+      {listArticles.length > 0 && (
+        <MainArticle
+          article={listArticles[0]}
+          onClickArticleDetail={handleArticleDetailClick}
+        />
+      )}
       <hr />
-      {listSubArticles && <ListArticles listSubArticles={listSubArticles} />}
+      {listSubArticles && (
+        <ListArticles
+          listSubArticles={listSubArticles}
+          onClickArticleDetail={handleArticleDetailClick}
+        />
+      )}
+      <Loading isOpen={isLoading} />
     </MainLayout>
   );
 };
