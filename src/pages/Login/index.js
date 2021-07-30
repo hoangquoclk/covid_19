@@ -19,6 +19,7 @@ export const Login = () => {
   const classes = useStyles();
   const [isLoading, setIsLoading] = useState(false);
   const history = useHistory();
+  const accounts = JSON.parse(localStorage.getItem("accounts"));
 
   const loginFormik = useFormik({
     initialValues: {
@@ -39,6 +40,18 @@ export const Login = () => {
         localStorage.setItem("auth", true);
         history.push("/home");
         welcomeAlert();
+      } else if (accounts) {
+        accounts.forEach((account) => {
+          if (
+            account.username === values.username &&
+            account.password === values.password
+          ) {
+            setIsLoading(false);
+            localStorage.setItem("auth", true);
+            history.push("/home");
+            welcomeAlert();
+          }
+        });
       } else {
         setIsLoading(false);
         errorAlert("Username or password incorrect");

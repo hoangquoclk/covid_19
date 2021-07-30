@@ -1,0 +1,59 @@
+{
+  "Menu": {
+    "1": "Trang chủ",
+    "2": "Tin tức",
+    "3": "Đăng xuất",
+    "4": "Đăng nhập"
+  },
+  "Language": {
+    "English": "Tiếng Anh",
+    "Vietnamese": "Tiếng Việt"
+  },
+  "SearchPlaceholder": "Tìm quốc gia",
+  "SearchNewsPlaceholder": "Tìm bài báo",
+  "SelectType": {
+    "Display": "Hiển thị",
+    "Dashboard": "Bảng điều khiển",
+    "Table": "Bảng cột"
+  },
+  "Situation": {
+    "Global": "Tình hình toàn cầu",
+    "Country": "Tình hình tại"
+  },
+  "NumberOfCases": {
+    "Inflection": "Số ca nhiễm",
+    "Recovered": "số ca khỏi",
+    "Death": "Số ca tử vong"
+  },
+  "TotalCases": {
+    "Inflection": "Tổng ca nhiễm",
+    "Recovered": "Tổng ca khỏi",
+    "Death": "Tổng ca tử vong"
+  },
+  "Time": {
+    "Year": "Năm",
+    "Month": "Tháng",
+    "Week": "Tuần"
+  },
+  "yAxis": "Người",
+  "Table": {
+    "1": "Quốc gia (Quốc kì)",
+    "2": "Ca nhiễm",
+    "3": "Ca khỏi",
+    "4": "Ca tử vong",
+    "5": "Ca nhiễm trong ngày"
+  },
+  "Map": {
+    "MapTitle": "Bản đồ thế giới covid 19",
+    "MapLegendTitle": "Tổng ca nhiễm (người)",
+    "cases": "ca"
+  },
+  "RangeDate": {
+    "StartDate": "Ngày bắt đầu",
+    "EndDate": "Ngày kết thúc",
+    "ButtonFilter": "Thống kê theo ngày",
+    "ErrorMinDate": "Thống kê bắt đầu từ ",
+    "ErrorMaxDate": "Thống kê kết thúc tại ",
+    "ErrorStartDateAndEndDate": "Ngày bắt đầu lớn hơn ngày kết thúc"
+  }
+}

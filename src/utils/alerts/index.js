@@ -36,22 +36,16 @@ export const errorAlert = (title) => {
     icon: "error",
     title: title,
     showConfirmButton: false,
-    timer: 1000,
+    timer: 1500,
   });
 };
 
 export const welcomeAlert = () => {
   Swal.fire({
-    title: "Welcome to Reminder App",
-    width: 600,
+    title: "Welcome to covid-19 app",
+    width: "60%",
     padding: "3em",
     background:
-      "#fff url(https://t4.ftcdn.net/jpg/04/21/45/37/360_F_421453773_i50TsddMMSP9uPjIrPQbOFy8fwRQ28Xa.jpg)",
-    backdrop: `
-      rgba(0,0,123,0.4)
-      url("https://daututiendientu.org/wp-content/uploads/2021/05/4cbe8d_f1ed2800a49649848102c68fc5a66e53_mv2.gif")
-      left top
-      no-repeat
-    `,
+      "#fff url(https://biodesign.asu.edu/sites/default/files/news/re%20re%20web-pallette-gif-First-Brownian-motion-and-mask-min.gif)",
   });
 };

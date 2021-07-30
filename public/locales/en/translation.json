@@ -1,0 +1,59 @@
+{
+  "Menu": {
+    "1": "Home",
+    "2": "News",
+    "3": "Logout",
+    "4": "Login"
+  },
+  "Language": {
+    "English": "English",
+    "Vietnamese": "Vietnamese"
+  },
+  "SearchPlaceholder": "Search Country",
+  "SearchNewsPlaceholder": "Search Article",
+  "SelectType": {
+    "Display": "Display",
+    "Dashboard": "Dashboard",
+    "Table": "Table"
+  },
+  "Situation": {
+    "Global": "Global Situation",
+    "Country": "Situation in"
+  },
+  "NumberOfCases": {
+    "Inflection": "Number of Inflections",
+    "Recovered": "Number of Recovered",
+    "Death": "Number of Deaths"
+  },
+  "TotalCases": {
+    "Inflection": "Total of Inflections",
+    "Recovered": "Total of Recovered",
+    "Death": "Total of Deaths"
+  },
+  "Time": {
+    "Year": "Year",
+    "Month": "Month",
+    "Week": "Week"
+  },
+  "yAxis": "People",
+  "Table": {
+    "1": "Country (Flag)",
+    "2": "Cases",
+    "3": "Recovered",
+    "4": "Deaths",
+    "5": "Today Cases"
+  },
+  "Map": {
+    "MapTitle": "World map covid 19",
+    "MapLegendTitle": "Total Cases (person)",
+    "cases": "cases"
+  },
+  "RangeDate": {
+    "StartDate": "Start Date",
+    "EndDate": "End Date",
+    "ButtonFilter": "Filter By Date",
+    "ErrorMinDate": "Statistics start from ",
+    "ErrorMaxDate": "Statistics end at ",
+    "ErrorStartDateAndEndDate": "Start date is greater than end date"
+  }
+}
