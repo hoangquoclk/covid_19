@@ -50,10 +50,7 @@ export const Home = () => {
 
   return (
     <div>
-      <Search
-        onSubmit={handleSearchChange}
-        listSearchCountries={listSearchCountries}
-      />
+      <Search onSubmit={handleSearchChange} listSearch={listSearchCountries} />
       <SelectType
         onDisplayTypeChange={handleDisplayTypeChange}
         displayType={displayType}

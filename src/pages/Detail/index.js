@@ -62,10 +62,7 @@ export const Detail = () => {
 
   return (
     <div>
-      <Search
-        onSubmit={handleSearchChange}
-        listSearchCountries={listSearchCountries}
-      />
+      <Search onSubmit={handleSearchChange} listSearch={listSearchCountries} />
       <Container>
         {country.countryInfo && <img src={country.countryInfo.flag} alt="" />}
       </Container>

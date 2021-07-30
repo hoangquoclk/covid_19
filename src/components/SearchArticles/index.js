@@ -19,7 +19,7 @@ import { useState } from "react";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 
-export const Search = (props) => {
+export const SearchArticles = (props) => {
   const classes = useStyles();
   const { t } = useTranslation();
   const { onSubmit, listSearch } = props;
@@ -90,15 +90,15 @@ export const Search = (props) => {
                   return (
                     <Paper key={index}>
                       <Link
-                        to={`/detail/${item.countryInfo._id}`}
+                        to={`/news/${item.source.id}/detail`}
                         className={classes.link}
                         onClick={handleSearchClick}
                       >
                         <ListItem button>
                           <ListItemAvatar>
-                            <Avatar src={item.countryInfo.flag} />
+                            <Avatar src={item.urlToImage} />
                           </ListItemAvatar>
-                          <ListItemText primary={item.country} />
+                          <ListItemText primary={item.title} />
                         </ListItem>
                       </Link>
                     </Paper>

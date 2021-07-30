@@ -1,5 +1,4 @@
 import { MainLayout } from "./MainLayout";
-import { MainNewsLayout } from "./MainNewsLayout";
 import { Loading } from "./Loading";
 import { Search } from "./Search";
 import { SelectType } from "./SelectType";
@@ -9,10 +8,12 @@ import LineChart from "./LineChart";
 import { Summary } from "./Summary";
 import { TableCountries } from "./TableCountries";
 import MapChart from "./MapChart";
+import { MainArticle } from "./MainArticle";
+import { ListArticles } from "./ListArticles";
+import { SearchArticles } from "./SearchArticles";
 
 export {
   MainLayout,
-  MainNewsLayout,
   Loading,
   Search,
   SelectType,
@@ -22,4 +23,7 @@ export {
   MapChart,
   Summary,
   TableCountries,
+  MainArticle,
+  ListArticles,
+  SearchArticles,
 };
