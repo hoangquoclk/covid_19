@@ -38,7 +38,7 @@ export const Highlight = ({ url, title }) => {
 
   useEffect(() => {
     getInformationToday();
-  }, [language]);
+  }, [language, url]);
 
   return (
     <Container className={classes.root}>
