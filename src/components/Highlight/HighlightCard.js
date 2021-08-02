@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid, Typography, Card, CardContent } from "@material-ui/core";
-
+import CountUp from "react-countup";
 import { useStyles } from "./styles";
 
 export const HighlightCard = ({ title, count, type }) => {
@@ -22,7 +22,7 @@ export const HighlightCard = ({ title, count, type }) => {
             variant="body2"
             className={classes.card__count}
           >
-            {count}
+            <CountUp end={count} duration={2} delay={0.5} />
           </Typography>
         </CardContent>
       </Card>
