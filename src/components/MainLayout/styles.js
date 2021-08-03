@@ -4,6 +4,9 @@ export const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
+  main_paper: {
+    minHeight: "100vh",
+  },
   btnLanguage: {
     color: "#fff",
   },
