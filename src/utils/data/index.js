@@ -63,7 +63,6 @@ export const filterDataByDateRange = (worldStatus, startDate, endDate) => {
   let initialDays = Object.keys(worldStatus.cases);
   let indexStart = initialDays.findIndex((p) => p === startDate);
   let indexEnd = initialDays.findIndex((p) => p === endDate);
-
   let j = 0;
   for (let i = indexStart; i <= indexEnd; i++) {
     days[j] = Object.keys(worldStatus.cases)[i];
@@ -73,5 +72,6 @@ export const filterDataByDateRange = (worldStatus, startDate, endDate) => {
     j = j + 1;
   }
   newStatus = [days, cases, recovered, deaths];
+
   return newStatus;
 };

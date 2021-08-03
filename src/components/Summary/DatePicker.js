@@ -17,6 +17,7 @@ export const DatePicker = ({
   onChangeStartDate,
   onChangeEndDate,
   onClickRangeFilter,
+  filter,
 }) => {
   const classes = useStyles();
   const { t } = useTranslation();
@@ -57,6 +58,7 @@ export const DatePicker = ({
       </Grid>
       <Button
         variant="contained"
+        variant={filter === "" ? "contained" : "outlined"}
         color="primary"
         className={classes.btn__filter}
         onClick={onClickRangeFilter}

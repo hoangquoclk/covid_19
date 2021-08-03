@@ -21,12 +21,12 @@
     "Country": "Situation in"
   },
   "NumberOfCases": {
-    "Inflection": "Number of Inflections",
+    "Cases": "Number of Cases",
     "Recovered": "Number of Recovered",
     "Death": "Number of Deaths"
   },
   "TotalCases": {
-    "Inflection": "Total of Inflections",
+    "Cases": "Total of Cases",
     "Recovered": "Total of Recovered",
     "Death": "Total of Deaths"
   },
@@ -35,6 +35,7 @@
     "Month": "Month",
     "Week": "Week"
   },
+  "TitleLineChart": "Global covid-19 pandemic situation",
   "yAxis": "People",
   "Table": {
     "1": "Country (Flag)",

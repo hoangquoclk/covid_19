@@ -80,7 +80,7 @@ const MapChart = ({ mapData }) => {
     },
     series: [
       {
-        name: t("TotalCases.Inflection"),
+        name: t("TotalCases.Cases"),
         joinBy: ["hc-key", "key"],
         tooltip: {
           valueSuffix: ` ${t("Map.cases")}`,
