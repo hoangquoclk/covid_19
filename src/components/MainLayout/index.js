@@ -68,7 +68,7 @@ export const MainLayout = ({ children }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Paper>
+      <Paper className={classes.main_paper}>
         <div className={classes.root}>
           <AppBar position="static">
             <Toolbar>

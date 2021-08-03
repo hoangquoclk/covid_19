@@ -106,41 +106,48 @@ export const Summary = () => {
   }, [worldStatusFilter]);
 
   return (
-    <Container className={classes.root}>
-      <ButtonGroup color="primary" aria-label="outlined primary button group">
-        <Button
-          onClick={() => handleFilterChange("week")}
-          variant={filter === "week" ? "contained" : "outlined"}
-        >
-          {t("Time.Week")}
-        </Button>
-        <Button
-          onClick={() => handleFilterChange("month")}
-          variant={filter === "month" ? "contained" : "outlined"}
-        >
-          {t("Time.Month")}
-        </Button>
-        <Button
-          onClick={() => handleFilterChange("year")}
-          variant={filter === "year" ? "contained" : "outlined"}
-        >
-          {t("Time.Year")}
-        </Button>
-      </ButtonGroup>
+    <>
+      {worldStatus.cases && (
+        <Container className={classes.root}>
+          <ButtonGroup
+            color="primary"
+            aria-label="outlined primary button group"
+          >
+            <Button
+              onClick={() => handleFilterChange("week")}
+              variant={filter === "week" ? "contained" : "outlined"}
+            >
+              {t("Time.Week")}
+            </Button>
+            <Button
+              onClick={() => handleFilterChange("month")}
+              variant={filter === "month" ? "contained" : "outlined"}
+            >
+              {t("Time.Month")}
+            </Button>
+            <Button
+              onClick={() => handleFilterChange("year")}
+              variant={filter === "year" ? "contained" : "outlined"}
+            >
+              {t("Time.Year")}
+            </Button>
+          </ButtonGroup>
 
-      <DatePicker
-        startDate={startDate}
-        endDate={endDate}
-        onChangeStartDate={handleStartDateChange}
-        onChangeEndDate={handleEndDateChange}
-        minDate={minDate}
-        maxDate={maxDate}
-        onClickRangeFilter={handleDateRangeFilterClick}
-      />
+          <DatePicker
+            startDate={startDate}
+            endDate={endDate}
+            onChangeStartDate={handleStartDateChange}
+            onChangeEndDate={handleEndDateChange}
+            minDate={minDate}
+            maxDate={maxDate}
+            onClickRangeFilter={handleDateRangeFilterClick}
+          />
 
-      {lineCharts.map((item, index) => (
-        <LineChart data={item} key={index} />
-      ))}
-    </Container>
+          {lineCharts.map((item, index) => (
+            <LineChart data={item} key={index} />
+          ))}
+        </Container>
+      )}
+    </>
   );
 };
