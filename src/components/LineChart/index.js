@@ -77,7 +77,6 @@ const LineChart = ({ data }) => {
 
   useEffect(() => {
     setOptions(generateOptions(data));
-    // console.log("da doi language");
   }, [data, language]);
 
   return (

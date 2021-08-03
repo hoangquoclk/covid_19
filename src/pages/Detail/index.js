@@ -5,8 +5,8 @@ import { useParams } from "react-router";
 import axios from "axios";
 import { Search, Highlight, Summary, Loading } from "../../components";
 import { WorldActions } from "../../redux/rootAction";
-import { Container } from "@material-ui/core";
 import { errorAlert } from "../../utils/alerts";
+import { Container } from "@material-ui/core";
 
 export const Detail = () => {
   const countries = useSelector((state) => state.countries.listCountries);
@@ -42,6 +42,7 @@ export const Detail = () => {
         setIsLoading(false);
       })
       .catch((error) => {
+        dispatch(WorldActions.setWorldStatus({}));
         errorAlert(error);
         setIsLoading(false);
       });
@@ -71,7 +72,11 @@ export const Detail = () => {
     <div>
       <Search onSubmit={handleSearchChange} listSearch={listSearchCountries} />
       <Container>
-        {country.countryInfo && <img src={country.countryInfo.flag} alt="" />}
+        {country.countryInfo ? (
+          <img src={country.countryInfo.flag} alt="" />
+        ) : (
+          ""
+        )}
       </Container>
       <Highlight
         url={`https://disease.sh/v3/covid-19/countries/${detailId}`}

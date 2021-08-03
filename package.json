@@ -29,6 +29,7 @@
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "redux-persist": "^6.0.0",
     "sweetalert2": "^11.0.19",
     "web-vitals": "^1.1.2",
     "yup": "^0.32.9"
