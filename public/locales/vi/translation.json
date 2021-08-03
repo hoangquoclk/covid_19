@@ -21,12 +21,12 @@
     "Country": "Tình hình tại"
   },
   "NumberOfCases": {
-    "Inflection": "Số ca nhiễm",
+    "Cases": "Số ca nhiễm",
     "Recovered": "số ca khỏi",
     "Death": "Số ca tử vong"
   },
   "TotalCases": {
-    "Inflection": "Tổng ca nhiễm",
+    "Cases": "Tổng ca nhiễm",
     "Recovered": "Tổng ca khỏi",
     "Death": "Tổng ca tử vong"
   },
@@ -35,6 +35,7 @@
     "Month": "Tháng",
     "Week": "Tuần"
   },
+  "TitleLineChart": "Tình hình dịch bệnh covid-19 toàn cầu",
   "yAxis": "Người",
   "Table": {
     "1": "Quốc gia (Quốc kì)",

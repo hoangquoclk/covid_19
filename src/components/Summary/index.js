@@ -13,8 +13,7 @@ import { errorAlert } from "../../utils/alerts";
 export const Summary = () => {
   const { t } = useTranslation();
   const classes = useStyles();
-  const [filter, setFilter] = useState("year");
-  const [lineCharts, setLineCharts] = useState([]);
+  const [filter, setFilter] = useState("week");
   const worldStatus = useSelector((state) => state.world.worldStatus);
   const [worldStatusFilter, setWorldStatusFilter] = useState();
   const [startDate, setStartDate] = useState(new Date());
@@ -35,6 +34,7 @@ export const Summary = () => {
   };
 
   const handleDateRangeFilterClick = () => {
+    setFilter("");
     if (startDate < minDate || endDate < minDate) {
       errorAlert(
         `${t("RangeDate.ErrorMinDate")} ${moment(minDate).format("MM/DD/YYYY")}`
@@ -48,8 +48,8 @@ export const Summary = () => {
     } else {
       const newStatus = filterDataByDateRange(
         worldStatus,
-        moment(startDate).format("M/DD/YY"),
-        moment(endDate).format("M/DD/YY")
+        moment(startDate).format("M/D/YY"),
+        moment(endDate).format("M/D/YY")
       );
       setWorldStatusFilter(newStatus);
     }
@@ -77,33 +77,13 @@ export const Summary = () => {
   }, [worldStatus]);
 
   useEffect(() => {
-    if (worldStatus.cases) {
-      const newStatus = filterData(worldStatus, filter);
-      setWorldStatusFilter(newStatus);
+    if (filter !== "") {
+      if (worldStatus.cases) {
+        const newStatus = filterData(worldStatus, filter);
+        setWorldStatusFilter(newStatus);
+      }
     }
   }, [filter, worldStatus]);
-
-  useEffect(() => {
-    if (worldStatusFilter) {
-      setLineCharts([
-        {
-          days: worldStatusFilter[0],
-          data: worldStatusFilter[1],
-          type: "cases",
-        },
-        {
-          days: worldStatusFilter[0],
-          data: worldStatusFilter[2],
-          type: "recovered",
-        },
-        {
-          days: worldStatusFilter[0],
-          data: worldStatusFilter[3],
-          type: "deaths",
-        },
-      ]);
-    }
-  }, [worldStatusFilter]);
 
   return (
     <>
@@ -141,11 +121,10 @@ export const Summary = () => {
             minDate={minDate}
             maxDate={maxDate}
             onClickRangeFilter={handleDateRangeFilterClick}
+            filter={filter}
           />
 
-          {lineCharts.map((item, index) => (
-            <LineChart data={item} key={index} />
-          ))}
+          {worldStatusFilter && <LineChart data={worldStatusFilter} />}
         </Container>
       )}
     </>

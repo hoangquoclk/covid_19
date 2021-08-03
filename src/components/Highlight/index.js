@@ -17,9 +17,9 @@ export const Highlight = ({ url, title }) => {
       .then((response) => {
         setSummary([
           {
-            title: t("NumberOfCases.Inflection"),
+            title: t("NumberOfCases.Cases"),
             count: response.data.cases,
-            type: "inflection",
+            type: "cases",
           },
           {
             title: t("NumberOfCases.Recovered"),
