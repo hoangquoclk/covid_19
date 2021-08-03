@@ -15,33 +15,25 @@ const LineChart = ({ data }) => {
   const language = localStorage.getItem("i18nextLng");
 
   const generateOptions = (data) => {
-    const categories = data.days.map((day) => moment(day).format("DD/MM/YYYY"));
-    let title = "";
-    let color = "";
-    if (data.type === "cases") {
-      title = t("TotalCases.Inflection");
-      color = "#032cf7";
-    } else if (data.type === "deaths") {
-      title = t("TotalCases.Death");
-      color = "#c9302c";
-    } else {
-      title = t("TotalCases.Recovered");
-      color = "#28a745";
-    }
+    const categories = data[0].map((day) => moment(day).format("DD/MM/YYYY"));
 
     return {
       chart: {
         height: 500,
-        width: 1000,
       },
       title: {
-        text: title,
+        text: t("TitleLineChart"),
+      },
+      legend: {
+        layout: "horizontal",
+        align: "center",
+        verticalAlign: "top",
       },
       xAxis: {
         categories: categories,
         crosshair: true,
       },
-      colors: [color],
+      colors: ["#032cf7", "#28a745", "#c9302c"],
       yAxis: {
         min: 0,
         title: {
@@ -68,8 +60,16 @@ const LineChart = ({ data }) => {
       },
       series: [
         {
-          name: title,
-          data: data.data,
+          name: t("TotalCases.Cases"),
+          data: data[1],
+        },
+        {
+          name: t("TotalCases.Recovered"),
+          data: data[2],
+        },
+        {
+          name: t("TotalCases.Death"),
+          data: data[3],
         },
       ],
     };

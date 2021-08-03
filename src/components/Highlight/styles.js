@@ -10,7 +10,7 @@ export const useStyles = makeStyles((theme) => ({
     fontSize: "2rem",
   },
   wrapper: (props) => {
-    if (props.type === "inflection")
+    if (props.type === "cases")
       return {
         borderBottom: "5px solid #032cf7",
         borderTop: "5px solid #032cf7",
