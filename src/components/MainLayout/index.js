@@ -24,16 +24,22 @@ export const MainLayout = ({ children }) => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
   const [language, setLanguage] = useState("En");
-  const [darkMode, setDarkMode] = useState(false);
+  const [flagDarkMode, setFlagDarkMode] = useState(false);
+  const darkMode = localStorage.getItem("darkMode");
 
   const theme = createTheme({
     palette: {
-      type: darkMode ? "dark" : "light",
+      type: darkMode === "true" ? "dark" : "light",
     },
   });
 
   const handleDarkModeChange = () => {
-    setDarkMode(!darkMode);
+    setFlagDarkMode(!flagDarkMode);
+    if (darkMode === "true") {
+      localStorage.setItem("darkMode", false);
+    } else if (darkMode === "false") {
+      localStorage.setItem("darkMode", true);
+    }
   };
 
   const handlePopoverOpen = (event) => {
@@ -110,7 +116,11 @@ export const MainLayout = ({ children }) => {
                 </Link>
               </Typography>
               <IconButton aria-label="darkMode" onClick={handleDarkModeChange}>
-                {darkMode ? <Brightness5Icon /> : <Brightness4Icon />}
+                {darkMode === "true" ? (
+                  <Brightness5Icon />
+                ) : (
+                  <Brightness4Icon />
+                )}
               </IconButton>
               <Button
                 className={classes.btnLanguage}
