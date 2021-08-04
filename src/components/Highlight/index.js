@@ -29,7 +29,7 @@ export const Highlight = ({ url, title }) => {
           {
             title: t("NumberOfCases.Death"),
             count: response.data.deaths,
-            type: "death",
+            type: "deaths",
           },
         ]);
       })
