@@ -34,4 +34,39 @@ export const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     fontSize: 18,
   },
+
+  icon: (props) => {
+    if (props.type === "cases")
+      return {
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        fontSize: "2rem",
+        color: "#032cf7",
+      };
+    else if (props.type === "recovered")
+      return {
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        fontSize: "2rem",
+        color: "#28a745",
+      };
+    else
+      return {
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        fontSize: "2rem",
+        color: "#c9302c",
+      };
+  },
+  icon__visualization: {
+    fontSize: "2rem",
+    padding: 0,
+  },
+  icon__line: {
+    fontSize: "2rem",
+    padding: 0,
+  },
 }));
