@@ -43,6 +43,9 @@ const LineChart = ({ data }) => {
           align: "right",
         },
       },
+      credits: {
+        enabled: false,
+      },
       tooltip: {
         headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
         pointFormat:

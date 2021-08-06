@@ -56,5 +56,13 @@
     "ErrorMinDate": "Statistics start from ",
     "ErrorMaxDate": "Statistics end at ",
     "ErrorStartDateAndEndDate": "Start date is greater than end date"
+  },
+  "ColumnChart": {
+    "Title": "Top countries with the highest number of cases",
+    "SubTitle": "Click the columns to view detail",
+    "Active": "active",
+    "Recovered": "recovered",
+    "Deaths": "deaths",
+    "Name": "Country"
   }
 }

@@ -56,5 +56,13 @@
     "ErrorMinDate": "Thống kê bắt đầu từ ",
     "ErrorMaxDate": "Thống kê kết thúc tại ",
     "ErrorStartDateAndEndDate": "Ngày bắt đầu lớn hơn ngày kết thúc"
+  },
+  "ColumnChart": {
+    "Title": "Các quốc gia hàng đầu có số ca nhiễm cao nhất",
+    "SubTitle": "Nhấp vào cột để xem chi tiết",
+    "Active": "đang bệnh",
+    "Recovered": "hồi phục",
+    "Deaths": "chết",
+    "Name": "Quốc gia"
   }
 }
