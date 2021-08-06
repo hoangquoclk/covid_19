@@ -10,7 +10,7 @@ import { DatePicker } from "./DatePicker";
 import moment from "moment";
 import { errorAlert } from "../../utils/alerts";
 
-export const Summary = () => {
+export const Summary = ({ language }) => {
   const { t } = useTranslation();
   const classes = useStyles();
   const [filter, setFilter] = useState("week");
@@ -83,7 +83,7 @@ export const Summary = () => {
         setWorldStatusFilter(newStatus);
       }
     }
-  }, [filter, worldStatus]);
+  }, [filter, worldStatus, language]);
 
   return (
     <>

@@ -16,6 +16,7 @@ export const Detail = () => {
   const { detailId } = useParams();
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
+  const language = localStorage.getItem("i18nextLng");
 
   const handleSearchChange = (newFilter) => {
     if (newFilter.searchText !== "") {
@@ -83,8 +84,9 @@ export const Detail = () => {
         title={
           country.country && `${t("Situation.Country")} ${country.country}`
         }
+        language={language}
       />
-      <Summary />
+      <Summary language={language} />
 
       <Loading isOpen={isLoading} />
     </div>
