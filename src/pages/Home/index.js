@@ -52,8 +52,16 @@ export const Home = () => {
     setDisplayType(event.target.value);
   };
 
+  const getTopCountries = () => {
+    let newList = [...countries];
+    newList.sort((a, b) => b.cases - a.cases);
+    let topCountries = newList.slice(0, 10);
+    dispatch(CountriesActions.setTopCountries(topCountries));
+  };
+
   useEffect(() => {
     getCountries();
+    getTopCountries();
   }, []);
 
   return (

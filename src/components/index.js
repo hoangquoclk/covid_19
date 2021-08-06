@@ -12,6 +12,7 @@ import { MainArticle } from "./MainArticle";
 import { ListArticles } from "./ListArticles";
 import { SearchArticles } from "./SearchArticles";
 import { Article } from "./Article";
+import ColumnChart from "./ColumnChart";
 
 export {
   MainLayout,
@@ -28,4 +29,5 @@ export {
   ListArticles,
   SearchArticles,
   Article,
+  ColumnChart,
 };

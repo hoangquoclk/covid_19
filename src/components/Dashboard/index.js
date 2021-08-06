@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Highlight, Summary, MapChart } from "..";
+import { Highlight, Summary, MapChart, ColumnChart } from "..";
 import { getWorldMap } from "../../utils/api";
 import axios from "axios";
 import { useDispatch } from "react-redux";
@@ -38,6 +38,7 @@ const Dashboard = () => {
         title={t("Situation.Global")}
       />
       <Summary />
+      <ColumnChart />
     </div>
   );
 };

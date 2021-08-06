@@ -25,6 +25,9 @@ const MapChart = ({ mapData }) => {
     title: {
       text: null,
     },
+    credits: {
+      enabled: false,
+    },
     colors: [
       "rgba(255,196,170,1)",
       "rgba(255,164,128,1)",
