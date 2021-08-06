@@ -10,6 +10,7 @@ const Dashboard = () => {
   const { t } = useTranslation();
   const [mapData, setMapData] = useState({});
   const dispatch = useDispatch();
+  const language = localStorage.getItem("i18nextLng");
 
   const getWorldStatus = async () => {
     await axios
@@ -32,13 +33,14 @@ const Dashboard = () => {
 
   return (
     <div>
-      <MapChart mapData={mapData} />
+      <MapChart mapData={mapData} language={language} />
       <Highlight
         url={"https://disease.sh/v3/covid-19/all"}
         title={t("Situation.Global")}
+        language={language}
       />
-      <Summary />
-      <ColumnChart />
+      <Summary language={language} />
+      <ColumnChart language={language} />
     </div>
   );
 };

@@ -5,11 +5,10 @@ import { HighlightCard } from "./HighlightCard";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 
-export const Highlight = ({ url, title }) => {
+export const Highlight = ({ url, title, language }) => {
   const { t } = useTranslation();
   const classes = useStyles();
   const [summary, setSummary] = useState([]);
-  const language = localStorage.getItem("i18nextLng");
 
   const getInformationToday = async () => {
     await axios

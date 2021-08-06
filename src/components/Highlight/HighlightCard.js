@@ -36,7 +36,7 @@ export const HighlightCard = ({ title, count, type }) => {
             variant="body2"
             className={classes.card__count}
           >
-            <CountUp end={count} duration={2} delay={0.5} />
+            <CountUp end={count} duration={2} delay={0.5} separator="," />
           </Typography>
         </CardContent>
       </Card>

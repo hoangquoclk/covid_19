@@ -9,18 +9,23 @@ import { useStyles } from "./styles";
 
 highchartsMap(Highcharts);
 
-const MapChart = ({ mapData }) => {
+const MapChart = ({ mapData, language }) => {
   const classes = useStyles();
   const countries = useSelector((state) => state.countries.listCountries);
   const chartRef = useRef(null);
   const { t } = useTranslation();
-  const language = localStorage.getItem("i18nextLng");
   const [options, setOptions] = useState({});
   const [mapLoaded, setMapLoaded] = useState(false);
 
   const initOptions = {
     chart: {
       height: "500",
+      backgroundColor: "transparent",
+      // events: {
+      //   load: function () {
+
+      //   }
+      // },
     },
     title: {
       text: null,

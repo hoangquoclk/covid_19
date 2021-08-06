@@ -17,6 +17,7 @@ import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 
 import { checkToken } from "../../utils/checkToken";
 import { useStyles } from "./styles";
+import { successAlert } from "../../utils/alerts";
 
 export const MainLayout = ({ children }) => {
   const { t, i18n } = useTranslation();
@@ -37,7 +38,7 @@ export const MainLayout = ({ children }) => {
     setFlagDarkMode(!flagDarkMode);
     if (darkMode === "true") {
       localStorage.setItem("darkMode", false);
-    } else if (darkMode === "false") {
+    } else {
       localStorage.setItem("darkMode", true);
     }
   };
@@ -59,6 +60,7 @@ export const MainLayout = ({ children }) => {
   const handleAuthenticationClick = () => {
     if (localStorage.getItem("auth")) {
       localStorage.removeItem("auth");
+      successAlert(t("LogoutSuccess"));
       history.push("/news");
     } else {
       history.push("/login");
