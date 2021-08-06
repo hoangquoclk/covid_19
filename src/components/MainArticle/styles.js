@@ -4,7 +4,7 @@ export const useStyles = makeStyles((theme) => ({
   root: {
     marginTop: "30px",
     [theme.breakpoints.down("xs")]: {
-      width: 300,
+      width: "80%",
     },
     [theme.breakpoints.up("md")]: {
       width: 800,

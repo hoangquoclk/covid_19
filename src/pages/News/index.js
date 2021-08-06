@@ -11,8 +11,9 @@ import {
 } from "../../components";
 import { errorAlert } from "../../utils/alerts";
 
-const apiKey = "3edd668791c74087954c358034bdd5e1";
-const url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${apiKey}`;
+// const apiKey = "3edd668791c74087954c358034bdd5e1";
+// const url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${apiKey}`;
+const url = "https://article-json-server.herokuapp.com/articles";
 
 export const News = () => {
   const listArticles = useSelector((state) => state.articles.listArticles);
@@ -26,7 +27,7 @@ export const News = () => {
     await axios
       .get(url)
       .then((res) => {
-        dispatch(ArticlesActions.setArticles(res.data.articles));
+        dispatch(ArticlesActions.setArticles(res.data));
         setIsLoading(false);
       })
       .catch((err) => {
