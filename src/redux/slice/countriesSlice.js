@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 let initialState = {
   listCountries: [],
+  topCountries: [],
 };
 
 export const countriesSlice = createSlice({
@@ -10,6 +11,9 @@ export const countriesSlice = createSlice({
   reducers: {
     setCountries: (state, action) => {
       state.listCountries = action.payload;
+    },
+    setTopCountries: (state, action) => {
+      state.topCountries = action.payload;
     },
   },
 });
