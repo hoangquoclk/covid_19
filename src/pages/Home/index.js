@@ -61,8 +61,11 @@ export const Home = () => {
 
   useEffect(() => {
     getCountries();
-    getTopCountries();
   }, []);
+
+  useEffect(() => {
+    getTopCountries();
+  }, [countries]);
 
   return (
     <div>
