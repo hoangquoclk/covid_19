@@ -8,12 +8,11 @@ import { useTranslation } from "react-i18next";
 
 drilldown(Highcharts);
 
-const ColumnChart = () => {
+const ColumnChart = ({ language }) => {
   const topCountries = useSelector((state) => state.countries.topCountries);
   const classes = useStyles();
   const [options, setOptions] = useState({});
   const { t } = useTranslation();
-  const language = localStorage.getItem("i18nextLng");
 
   const generateOptions = () => {
     let data = topCountries.map((country) => {
@@ -92,12 +91,12 @@ const ColumnChart = () => {
           },
         },
       },
-      tooltip: {
-        headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-        pointFormat:
-          '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b> people<br/>',
-        useHTML: true,
-      },
+      // tooltip: {
+      //   headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+      //   pointFormat:
+      //     '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b> people<br/>',
+      //   useHTML: true,
+      // },
       series: [
         {
           name: t("ColumnChart.Name"),
