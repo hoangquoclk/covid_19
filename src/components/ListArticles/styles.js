@@ -4,6 +4,9 @@ export const useStyles = makeStyles((theme) => ({
   root: {
     marginTop: 50,
   },
+  left__article: {
+    marginBottom: 30,
+  },
   left__article__item: {
     padding: 10,
     borderBottom: "1px solid gray",

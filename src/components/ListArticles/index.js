@@ -5,6 +5,7 @@ import { useStyles } from "./styles";
 
 export const ListArticles = ({ listSubArticles, onClickArticleDetail }) => {
   const classes = useStyles();
+  const numberArticlesOfLeft = Math.ceil(listSubArticles.length / 2);
 
   return (
     <Container className={classes.root}>
@@ -12,7 +13,7 @@ export const ListArticles = ({ listSubArticles, onClickArticleDetail }) => {
         <Grid item xs={12} sm={6} className={classes.left__article}>
           {listSubArticles &&
             listSubArticles.map((item, index) => {
-              if (index <= 12) {
+              if (index <= numberArticlesOfLeft) {
                 return (
                   <Container
                     className={classes.left__article__item}
@@ -63,7 +64,7 @@ export const ListArticles = ({ listSubArticles, onClickArticleDetail }) => {
         <Grid item xs={12} sm={6} className={classes.right__articles}>
           {listSubArticles &&
             listSubArticles.map((item, index) => {
-              if (index > 12) {
+              if (index > numberArticlesOfLeft) {
                 return (
                   <Container
                     className={classes.right__articles__item}
