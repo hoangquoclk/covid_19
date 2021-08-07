@@ -13,8 +13,38 @@ const ColumnChart = ({ language }) => {
   const classes = useStyles();
   const [options, setOptions] = useState({});
   const { t } = useTranslation();
+  const darkMode = localStorage.getItem("darkMode");
 
-  const generateOptions = () => {
+  const initialOptions = {
+    accessibility: {
+      announceNewData: {
+        enabled: true,
+      },
+    },
+    credits: {
+      enabled: false,
+    },
+    legend: {
+      enabled: false,
+    },
+    plotOptions: {
+      series: {
+        borderWidth: 0,
+        dataLabels: {
+          enabled: true,
+          format: "{point.y}",
+        },
+      },
+    },
+    tooltip: {
+      headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+      pointFormat:
+        '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b> people<br/>',
+      useHTML: true,
+    },
+  };
+
+  useEffect(() => {
     let data = topCountries.map((country) => {
       return {
         name: country.country,
@@ -36,22 +66,8 @@ const ColumnChart = ({ language }) => {
       };
     });
 
-    return {
-      chart: {
-        type: "column",
-        height: 500,
-      },
-      title: {
-        text: t("ColumnChart.Title"),
-      },
-      subtitle: {
-        text: t("ColumnChart.SubTitle"),
-      },
-      accessibility: {
-        announceNewData: {
-          enabled: true,
-        },
-      },
+    const newOptions = {
+      ...initialOptions,
       xAxis: {
         type: "category",
         labels: {
@@ -66,37 +82,10 @@ const ColumnChart = ({ language }) => {
                 output = country.flag;
               }
             });
-
             return `<span><img src=${output} style="max-width: 40px; height: 25px;"/><br></span>`;
           },
         },
       },
-      yAxis: {
-        title: {
-          text: t("yAxis"),
-        },
-      },
-      credits: {
-        enabled: false,
-      },
-      legend: {
-        enabled: false,
-      },
-      plotOptions: {
-        series: {
-          borderWidth: 0,
-          dataLabels: {
-            enabled: true,
-            format: "{point.y}",
-          },
-        },
-      },
-      // tooltip: {
-      //   headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-      //   pointFormat:
-      //     '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b> people<br/>',
-      //   useHTML: true,
-      // },
       series: [
         {
           name: t("ColumnChart.Name"),
@@ -108,11 +97,61 @@ const ColumnChart = ({ language }) => {
         series: drilldownData,
       },
     };
-  };
 
-  useEffect(() => {
-    setOptions(generateOptions());
-  }, [language, topCountries]);
+    if (darkMode === "true") {
+      setOptions({
+        ...newOptions,
+        chart: {
+          type: "column",
+          height: 500,
+          backgroundColor: "#666666",
+        },
+        title: {
+          text: t("ColumnChart.Title"),
+          style: { color: "#ececec" },
+        },
+        subtitle: {
+          text: t("ColumnChart.SubTitle"),
+          style: { color: "#ececec" },
+        },
+        yAxis: {
+          title: {
+            text: t("yAxis"),
+            style: { color: "#ececec" },
+          },
+          labels: {
+            style: { color: "#ececec" },
+          },
+        },
+      });
+    } else {
+      setOptions({
+        ...newOptions,
+        chart: {
+          type: "column",
+          height: 500,
+          backgroundColor: "#FFF",
+        },
+        title: {
+          text: t("ColumnChart.Title"),
+          style: { color: "#333333" },
+        },
+        subtitle: {
+          text: t("ColumnChart.SubTitle"),
+          style: { color: "#333333" },
+        },
+        yAxis: {
+          title: {
+            text: t("yAxis"),
+            style: { color: "#333333" },
+          },
+          labels: {
+            style: { color: "#333333" },
+          },
+        },
+      });
+    }
+  }, [language, topCountries, darkMode]);
 
   return (
     <div className={classes.column__chart}>
