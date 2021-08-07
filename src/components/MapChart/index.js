@@ -16,17 +16,9 @@ const MapChart = ({ mapData, language }) => {
   const { t } = useTranslation();
   const [options, setOptions] = useState({});
   const [mapLoaded, setMapLoaded] = useState(false);
+  const darkMode = localStorage.getItem("darkMode");
 
   const initOptions = {
-    chart: {
-      height: "500",
-      backgroundColor: "transparent",
-      // events: {
-      //   load: function () {
-
-      //   }
-      // },
-    },
     title: {
       text: null,
     },
@@ -125,17 +117,41 @@ const MapChart = ({ mapData, language }) => {
         return { key: key, value: 0 };
       });
 
-      setOptions(() => ({
-        ...initOptions,
-        title: {
-          text: t("Map.MapTitle"),
-        },
-        series: [{ ...initOptions.series[0], mapData: mapData, data: newData }],
-      }));
+      if (darkMode === "true") {
+        setOptions(() => ({
+          ...initOptions,
+          chart: {
+            height: "500",
+            backgroundColor: "#666666",
+          },
+          title: {
+            text: t("Map.MapTitle"),
+            style: { color: "#ececec", fontSize: "18px" },
+          },
+          series: [
+            { ...initOptions.series[0], mapData: mapData, data: newData },
+          ],
+        }));
+      } else {
+        setOptions(() => ({
+          ...initOptions,
+          chart: {
+            height: "500",
+            backgroundColor: "#FFF",
+          },
+          title: {
+            text: t("Map.MapTitle"),
+            style: { color: "#333333", fontSize: "18px" },
+          },
+          series: [
+            { ...initOptions.series[0], mapData: mapData, data: newData },
+          ],
+        }));
+      }
 
       if (!mapLoaded) setMapLoaded(true);
     }
-  }, [mapData, mapLoaded, countries, language]);
+  }, [mapData, mapLoaded, countries, language, darkMode]);
 
   useEffect(() => {
     if (chartRef && chartRef.current) {
