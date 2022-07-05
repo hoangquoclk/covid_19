@@ -45,6 +45,9 @@ export const Search = (props) => {
   const handleSearchTextKeyDown = (e) => {
     if (e.keyCode === 13) {
       e.preventDefault();
+      if (listSearch.length >= 1) {
+        window.location.href = `/detail/${listSearch[0].countryInfo._id}`;
+      }
     }
   };
 
