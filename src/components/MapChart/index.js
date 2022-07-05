@@ -42,10 +42,6 @@ const MapChart = ({ mapData, language }) => {
       dataClassColor: "category",
       dataClasses: [
         {
-          to: 1000,
-        },
-        {
-          from: 1000,
           to: 10000,
         },
         {
@@ -54,10 +50,6 @@ const MapChart = ({ mapData, language }) => {
         },
         {
           from: 100000,
-          to: 500000,
-        },
-        {
-          from: 500000,
           to: 1000000,
         },
         {
@@ -66,6 +58,14 @@ const MapChart = ({ mapData, language }) => {
         },
         {
           from: 5000000,
+          to: 10000000,
+        },
+        {
+          from: 10000000,
+          to: 50000000,
+        },
+        {
+          from: 50000000,
         },
       ],
     },
