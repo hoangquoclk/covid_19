@@ -36,8 +36,15 @@ export const Home = () => {
     if (newFilter.searchText !== "") {
       let list = [];
 
+      newFilter.searchText = newFilter.searchText
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, ""); // remove accents/diacritics
+
+      newFilter.searchText = newFilter.searchText.replace(/\s/g, ""); // replace whitespace by empty string ""
+
       countries.forEach((item) => {
-        if (item.country.includes(newFilter.searchText)) {
+        let countryName = item.country.replace(/\s/g, "");
+        if (countryName.toLowerCase().includes(newFilter.searchText.toLowerCase())) {
           list.push(item);
         }
       });
